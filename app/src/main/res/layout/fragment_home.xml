@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.meditasyonapp.feature.home.presentation.HomeViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/margin_vertical"
+            android:background="@color/dark_blue">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.progressBarVisibilityObservable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/meditation_list_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextViewLargeStyle"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.meditationListVisibilityObservable}"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Meditations"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/meditation_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="@dimen/margin_top"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.meditationListVisibilityObservable}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meditation_list_header"
+                tools:listitem="@layout/meditation_item_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/banner_container"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/banner_view_height"
+                android:paddingLeft="@dimen/margin_vertical"
+                app:cardCornerRadius="@dimen/corner_radius"
+                android:backgroundTint="@color/banner_color"
+                android:visibility="@{viewModel.bannerVisibilityObservable}"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/meditation_list">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/margin_vertical">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintGuide_percent="0.25"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:orientation="vertical"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/banner_icon"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginEnd="@dimen/margin_top_xsmall"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_moon"/>
+
+                    <TextView
+                        android:id="@+id/banner_text"
+                        style="@style/TextViewSmallStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_top"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/barrier"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="@string/banner_text" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/story_list_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextViewLargeStyle"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.storyListVisibilityObservable}"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/banner_container"
+                android:text="Stories"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/story_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="@dimen/margin_top"
+                android:visibility="@{viewModel.storyListVisibilityObservable}"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/story_list_header"
+                tools:listitem="@layout/meditation_item_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

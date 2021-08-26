@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_medium">24dp</dimen>
+
+    <dimen name="margin_top_xsmall">8dp</dimen>
+    <dimen name="margin_top">16dp</dimen>
+    <dimen name="margin_bottom">12dp</dimen>
+    <dimen name="margin_start">8dp</dimen>
+    <dimen name="margin_vertical">24dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_huge">64dp</dimen>
+    <dimen name="header_margin_start">84dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="padding_horizontal">24dp</dimen>
+
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="card_view_width">155dp</dimen>
+    <dimen name="card_view_height">220dp</dimen>
+    <dimen name="banner_view_height">120dp</dimen>
+</resources>

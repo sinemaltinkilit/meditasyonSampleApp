@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MeditasyonApp</string>
+    <string name="sign_in_text">Sign in to Meditopia</string>
+    <string name="username_placeholder">Username</string>
+    <string name="password_placeholder">Password</string>
+    <string name="credential_error_title">Uyarı!</string>
+    <string name="credential_error_message">Kullanıcı adınız en az 3 karakter olmalıdır. Şifreniz en az bir büyük harf ve bir rakam içermelidir. Girdiğiniz bilgileri kontrol ediniz.</string>
+    <string name="done_button">Tamam</string>
+    <string name="banner_text">Look %1$s. Pretty, isn’t it? Perfectly balanced.As all things should be.</string>
+    <string name="network_error_title">Hata</string>
+    <string name="network_error_message">İnternet bağlantınızı kontrol ediniz.</string>
+</resources>

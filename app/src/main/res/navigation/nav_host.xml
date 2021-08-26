@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.meditasyonapp.feature.login.presentation.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.meditasyonapp.feature.home.presentation.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_meditationDetailFragment"
+            app:destination="@id/meditationDetailFragment">
+            <argument
+                android:name="detailItem"
+                app:argType="com.example.meditasyonapp.base.model.DetailItemModel"
+                app:nullable="true"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/meditationDetailFragment"
+        android:name="com.example.meditasyonapp.feature.meditationdetail.presentation.MeditationDetailFragment"
+        android:label="Detail" />
+</navigation>

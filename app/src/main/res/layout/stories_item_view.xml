@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.meditasyonapp.feature.home.presentation.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_top"
+        android:background="@color/dark_blue">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_view"
+            android:layout_width="@dimen/card_view_width"
+            android:layout_height="@dimen/card_view_width"
+            app:layout_constraintBottom_toTopOf="@id/story_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="@dimen/corner_radius">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/card_view_width"
+                android:scaleType="fitXY"
+                android:layout_height="@dimen/card_view_height"
+                tools:src="@drawable/placeholder"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/story_name"
+            style="@style/TextViewSmallStyle"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_xsmall"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@id/image_view"
+            app:layout_constraintStart_toStartOf="@id/image_view"
+            app:layout_constraintTop_toBottomOf="@id/image_view"
+            app:layout_constraintBottom_toTopOf="@id/text"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/TextViewXSmallStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@id/image_view"
+            app:layout_constraintStart_toStartOf="@id/image_view"
+            app:layout_constraintTop_toBottomOf="@id/story_name"
+            tools:text="Subtitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
